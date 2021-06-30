@@ -12,7 +12,7 @@ class Day < ApplicationRecord
     validates :person_id, numericality: {only_integer: true, greater_than: 0}
 
     def update_calories_expended(exercise)
-
+        
     end
 
     def calculate_tdee
@@ -22,7 +22,7 @@ class Day < ApplicationRecord
 
     def calculate_bmr
         #Basal Metabolic Rate
-        weight = self.weight * .453592
+        weight = self.weight * 0.453592
         height = self.person.height * 2.54
         age = self.person.age
         if self.person.gender == "M"
@@ -34,6 +34,6 @@ class Day < ApplicationRecord
 
     def calculate_tef
         #Thermic Effect of Food
-        self.tef = self.bmr * .1
+        self.tef = self.bmr * 0.1
     end
 end
