@@ -36,4 +36,10 @@ class Day < ApplicationRecord
         #Thermic Effect of Food
         self.tef = self.bmr * 0.1
     end
+
+    def set_variables
+        self.calculate_bmr
+        self.calculate_tef
+        self.calculate_tdee
+    end
 end

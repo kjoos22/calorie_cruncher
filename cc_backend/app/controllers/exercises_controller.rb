@@ -1,11 +1,15 @@
 class ExercisesController < ApplicationController
+
+    before_action :set_day
+
     def index
-        @exercises = Exercise.all
+        @exercises = @day.exercises
         render json: @exercises
     end
 
     def create
-        @exercise = Exercise.new(exercise_params)
+        @exercise = @person.exercises.new(exercise_params)
+        @day.update_calories_expended(@exercise)
         if @exercise.save
             render json: @exercise
         else 
@@ -19,6 +23,10 @@ class ExercisesController < ApplicationController
     end
 
     private
+
+    def set_day
+        @day = Day.find(params[:day_id])
+    end
 
     def exercise_params
         params.require(:exercise).permit(:type, :minutes, :day_id)

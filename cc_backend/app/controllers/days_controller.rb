@@ -8,7 +8,9 @@ class DaysController < ApplicationController
     end
 
     def create
-        @day = Day.new(day_params)
+        @day = @person.days.new(day_params)
+        @day.calories_expended = 0
+        @day.set_variables
         if @day.save
             render json: @day
         else 
@@ -17,7 +19,7 @@ class DaysController < ApplicationController
     end
 
     def show
-        @day = day.find(params[:id])
+        @day = Day.find(params[:id])
         render json: @day
     end
 
