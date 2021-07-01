@@ -11,7 +11,7 @@ import App from './App';
 
 const enhancement = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-let reducer = ''
+let reducer = '';
 
 let store = createStore(reducer, applyMiddleware(thunk))
 
