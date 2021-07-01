@@ -38,8 +38,8 @@ class Day < ApplicationRecord
     end
 
     def set_variables
-        self.calculate_bmr
-        self.calculate_tef
-        self.calculate_tdee
+        self.calculate_bmr()
+        self.calculate_tef()
+        self.calculate_tdee()
     end
 end
