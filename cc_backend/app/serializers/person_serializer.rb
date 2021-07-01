@@ -1,3 +1,5 @@
 class PersonSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :inches, :age, :gender
+
+  has_many :days
 end

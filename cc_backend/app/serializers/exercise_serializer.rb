@@ -1,3 +1,3 @@
 class ExerciseSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :type, :minutes, :day_id
 end
